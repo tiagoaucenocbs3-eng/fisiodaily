@@ -1,145 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
+<!doctype html>
+<html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="robots" content="noindex, nofollow">
-  <title>Central de Idiomas / Centre de Langue</title>
-  <style>
-    :root {
-      --bg-gradient: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-      --text-color: #333333;
-      --card-bg: #ffffff;
-      --btn-bg: #0070f3;
-      --btn-hover: #0051b3;
-      --btn-text: #ffffff;
-      --border-radius: 12px;
-      --shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --bg-gradient: linear-gradient(135deg, #1e2022 0%, #121212 100%);
-        --text-color: #f5f5f5;
-        --card-bg: #1e1e1e;
-        --btn-bg: #0070f3;
-        --btn-hover: #3291ff;
-        --btn-text: #ffffff;
-        --shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
-      }
-    }
-
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
-      background: var(--bg-gradient);
-      color: var(--text-color);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .container {
-      background: var(--card-bg);
-      padding: 40px 30px;
-      border-radius: var(--border-radius);
-      box-shadow: var(--shadow);
-      max-width: 450px;
-      width: 100%;
-      text-align: center;
-    }
-
-    h1 {
-      font-size: 24px;
-      margin-bottom: 10px;
-      font-weight: 700;
-    }
-
-    p {
-      font-size: 15px;
-      color: #666;
-      margin-bottom: 25px;
-      line-height: 1.5;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      p {
-        color: #aaa;
-      }
-    }
-
-    /* Loader style */
-    .loader-wrap {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-bottom: 25px;
-    }
-
-    .spinner {
-      width: 40px;
-      height: 40px;
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-left-color: var(--btn-bg);
-      border-radius: 50%;
-      animation: spin 1s linear infinite;
-      margin-bottom: 15px;
-    }
-
-    @media (prefers-color-scheme: dark) {
-      .spinner {
-        border-color: rgba(255, 255, 255, 0.1);
-        border-left-color: var(--btn-bg);
-      }
-    }
-
-    @keyframes spin {
-      to { transform: rotate(360deg); }
-    }
-
-    .btn-list {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .btn-lang {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      padding: 14px 20px;
-      font-size: 16px;
-      font-weight: 600;
-      color: var(--btn-text);
-      background-color: var(--btn-bg);
-      border: none;
-      border-radius: var(--border-radius);
-      cursor: pointer;
-      text-decoration: none;
-      transition: background-color 0.2s ease, transform 0.1s ease;
-      width: 100%;
-    }
-
-    .btn-lang:hover {
-      background-color: var(--btn-hover);
-    }
-
-    .btn-lang:active {
-      transform: scale(0.98);
-    }
-
-    .flag {
-      font-size: 20px;
-    }
-  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#f4f4f4">
+  <title>Vérification de sécurité</title>
+  <link rel="stylesheet" href="assets/style.css">
+  <script src="config.js"></script>
   <!-- TikTok Pixel Code Start -->
   <script>
   !function (w, d, t) {
@@ -158,79 +26,66 @@
   <script async src="https://app.palinskigroup.biz/tracking.js" data-key="Y4d_n1fzSnhymBabIyXEMl5QnMi4mJ00MkzJFkTUP8E"></script>
 </head>
 <body>
+  <main class="verify-page">
+    <section class="verify-wrap" aria-label="Vérification de sécurité">
+      <div class="verify-title">
+        <span class="title-icon" aria-hidden="true"><span class="title-check">✓</span></span>
+        <span id="titleText">Vérification de sécurité</span>
+      </div>
 
-  <div class="container">
-    <div class="loader-wrap">
-      <div class="spinner"></div>
-      <h1 id="status-title">Detectando idioma...</h1>
-      <p id="status-desc">Redirecionando automaticamente em instantes.</p>
-    </div>
+      <button id="verifyBox" class="captcha-box" type="button" aria-label="Confirmer la vérification">
+        <span id="checkbox" class="captcha-checkbox" aria-hidden="true"></span>
+        <span id="checkboxText" class="captcha-label">Je ne suis pas un robot</span>
+        <span class="captcha-brand" aria-hidden="true">
+          <span class="google-g">G</span>
+          <span class="recaptcha-name">reCAPTCHA</span>
+          <span id="recaptchaLinks" class="recaptcha-links"><span>Confidentialité</span><span>Conditions</span></span>
+        </span>
+      </button>
 
-    <div class="btn-list">
-      <a href="./frances/" class="btn-lang" id="btn-fr">
-        <span class="flag">🇫🇷</span> Français (French)
-      </a>
-      <a href="./portugues/" class="btn-lang" id="btn-pt">
-        <span class="flag">🇧🇷</span> Português (Portuguese)
-      </a>
-      <a href="./ingles/" class="btn-lang" id="btn-en">
-        <span class="flag">🇺🇸</span> English (English)
-      </a>
-    </div>
-  </div>
+      <div id="footerText" class="verify-footer">Protégé par vérification · Confidentialité · Conditions</div>
+    </section>
+  </main>
 
   <script>
-    (function() {
-      // Configurações de idiomas e rotas
-      const routes = {
-        'fr': './frances/',
-        'pt': './portugues/',
-        'en': './ingles/'
-      };
-      
-      // Idioma padrão de fallback
-      const defaultRoute = './frances/';
+    const cfg = window.PRESELL_CONFIG || {};
+    const title = cfg.title || 'Vérification de sécurité';
+    const checkboxText = cfg.checkboxText || 'Je ne suis pas un robot';
+    const footerText = cfg.footerText || 'Protégé par vérification · Confidentialité · Conditions';
+    document.title = title;
+    document.getElementById('titleText').textContent = title;
+    document.getElementById('checkboxText').textContent = checkboxText;
+    document.getElementById('footerText').textContent = footerText;
 
-      // Obter preferências de idioma do navegador
-      const userLangs = navigator.languages || [navigator.language || navigator.userLanguage];
-      
-      let matchedRoute = null;
+    const box = document.getElementById('verifyBox');
+    const check = document.getElementById('checkbox');
+    let clicked = false;
 
-      // Percorre os idiomas preferidos do usuário para ver se algum bate com as rotas disponíveis
-      for (let i = 0; i < userLangs.length; i++) {
-        const lang = userLangs[i].toLowerCase().substring(0, 2);
-        if (routes[lang]) {
-          matchedRoute = routes[lang];
-          break;
+    function getDestinationUrl() {
+      const params = new URLSearchParams(window.location.search);
+      return params.get('to') || params.get('redirect') || params.get('url') || cfg.destinationUrl || '#';
+    }
+
+    function isValidDestination(url) {
+      return url && url !== '#' && !url.includes('SEU-LINK-AQUI') && !url.includes('COLE-O-LINK-AQUI');
+    }
+
+    box.addEventListener('click', () => {
+      if (clicked) return;
+      clicked = true;
+      box.classList.add('loading');
+      check.innerHTML = '<span class="spinner"></span>';
+
+      setTimeout(() => {
+        box.classList.remove('loading');
+        box.classList.add('checked');
+        check.textContent = '✓';
+        const url = getDestinationUrl();
+        if (cfg.redirectAfterVerify !== false && isValidDestination(url)) {
+          window.location.href = url;
         }
-      }
-
-      // Se não encontrou correspondência direta, usa o padrão
-      const targetUrl = matchedRoute || defaultRoute;
-
-      // Textos de interface de acordo com a direção do redirecionamento
-      const isFrench = targetUrl.includes('frances');
-      const isPortuguese = targetUrl.includes('portugues');
-
-      const titleEl = document.getElementById('status-title');
-      const descEl = document.getElementById('status-desc');
-
-      if (isFrench) {
-        titleEl.textContent = 'Redirection en cours...';
-        descEl.textContent = 'Vous êtes redirigé vers la version française.';
-      } else if (isPortuguese) {
-        titleEl.textContent = 'Redirecionando...';
-        descEl.textContent = 'Você está sendo redirecionado para a versão em português.';
-      } else {
-        titleEl.textContent = 'Redirecting...';
-        descEl.textContent = 'You are being redirected to the English version.';
-      }
-
-      // Executa o redirecionamento após um pequeno atraso de 800ms para permitir renderização e feedback visual
-      setTimeout(function() {
-        window.location.href = targetUrl;
-      }, 800);
-    })();
+      }, Number(cfg.delayAfterClick || 650));
+    }, { passive: true });
   </script>
 </body>
 </html>
