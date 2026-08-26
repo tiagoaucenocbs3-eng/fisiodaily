@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Assistance Acheteur - Support Client</title>
+  <style>
+    :root {
+      --bg-color: #f8fafc;
+      --text-color: #1e293b;
+      --card-bg: #ffffff;
+      --primary-color: #0f172a;
+      --accent-color: #0284c7;
+      --border-color: #e2e8f0;
+      --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-color: #0f172a;
+        --text-color: #f1f5f9;
+        --card-bg: #1e293b;
+        --primary-color: #f8fafc;
+        --accent-color: #38bdf8;
+        --border-color: #334155;
+        --shadow: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
+      }
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      line-height: 1.6;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 650px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    h1 {
+      font-size: 28px;
+      color: var(--primary-color);
+      margin-bottom: 10px;
+    }
+
+    .subtitle {
+      font-size: 16px;
+      color: #64748b;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .subtitle {
+        color: #94a3b8;
+      }
+    }
+
+    .card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: var(--shadow);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+
+    .contact-info {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .contact-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--primary-color);
+    }
+
+    .email-link {
+      display: inline-block;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--accent-color);
+      text-decoration: none;
+      word-break: break-all;
+      margin-bottom: 20px;
+    }
+
+    .email-link:hover {
+      text-decoration: underline;
+    }
+
+    .btn-contact {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--accent-color);
+      color: #ffffff;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 24px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-contact:hover {
+      opacity: 0.9;
+    }
+
+    .faq-section {
+      margin-top: 40px;
+    }
+
+    .faq-title {
+      font-size: 22px;
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 8px;
+    }
+
+    .faq-item {
+      margin-bottom: 20px;
+    }
+
+    .faq-question {
+      font-size: 16px;
+      font-weight: 600;
+      color: var(--primary-color);
+      margin-bottom: 6px;
+    }
+
+    .faq-answer {
+      font-size: 15px;
+      color: #475569;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      .faq-answer {
+        color: #cbd5e1;
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <h1>Assistance Acheteur</h1>
+      <p class="subtitle">Nous sommes là pour vous aider avec vos achats</p>
+    </header>
+
+    <div class="card">
+      <div class="contact-info">
+        <p class="contact-title">Pour toute question ou demande de support, contactez-nous par e-mail :</p>
+        <a href="mailto:digitalelite273@gmail.com?subject=Assistance%20Achat" class="email-link">digitalelite273@gmail.com</a>
+        <div>
+          <a href="mailto:digitalelite273@gmail.com?subject=Assistance%20Achat" class="btn-contact">Nous contacter par e-mail</a>
+        </div>
+      </div>
+      <p style="font-size: 14px; text-align: center; color: #64748b; margin-top: 15px;">
+        Notre équipe de support répond généralement dans un délai de 24 à 48 heures ouvrables.
+      </p>
+    </div>
+
+    <div class="faq-section">
+      <h2 class="faq-title">Questions Fréquentes (FAQ)</h2>
+      
+      <div class="faq-item">
+        <h3 class="faq-question">1. Comment vais-je recevoir mon achat ?</h3>
+        <p class="faq-answer">
+          Dès que votre paiement est validé, vous recevrez automatiquement un e-mail contenant toutes les instructions d'accès à l'adresse e-mail renseignée lors de la commande. Pensez à vérifier vos dossiers de courrier indésirable (Spams).
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">2. Quels sont les modes de paiement acceptés ?</h3>
+        <p class="faq-answer">
+          Nous utilisons des plateformes de paiement sécurisées et cryptées SSL de renommée mondiale. Vous pouvez payer par carte bancaire (Crédit/Débit) ou autres moyens de paiement locaux disponibles sur la page de paiement.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">3. Puis-je demander un remboursement ?</h3>
+        <p class="faq-answer">
+          Oui, nous offrons une garantie de satisfaction. Si le produit ne répond pas à vos attentes, vous pouvez demander le remboursement intégral dans le délai légal ou promotionnel spécifié lors de votre achat. Il vous suffit d'envoyer un e-mail à notre support à l'adresse ci-dessus.
+        </p>
+      </div>
+
+      <div class="faq-item">
+        <h3 class="faq-question">4. Mes données personnelles sont-elles en sécurité ?</h3>
+        <p class="faq-answer">
+          Absolument. Nous respectons strictement la confidentialité de vos informations. Vos données personnelles sont uniquement utilisées pour traiter votre commande et vous offrir le support client. Vos informations de paiement ne sont jamais stockées sur nos serveurs.
+        </p>
+      </div>
+    </div>
+
+    <footer>
+      <p>&copy; 2026 Support Client. Tous droits réservés.</p>
+      <p style="margin-top: 8px;"><a href="./">Retour à l'accueil</a> | <a href="./politique-de-confidentialite.html">Politique de confidentialité</a></p>
+    </footer>
+  </div>
+
+</body>
+</html>
