@@ -63,7 +63,29 @@
  
     function getDestinationUrl() {
       const params = new URLSearchParams(window.location.search);
-      return params.get('to') || params.get('redirect') || params.get('url') || cfg.destinationUrl || '#';
+      let dest = params.get('to') || params.get('redirect') || params.get('url') || cfg.destinationUrl || '#';
+      if (dest !== '#') {
+        try {
+          const resolvedUrl = new URL(dest, window.location.href);
+          params.forEach((value, key) => {
+            if (key !== 'to' && key !== 'redirect' && key !== 'url') {
+              resolvedUrl.searchParams.set(key, value);
+            }
+          });
+          dest = resolvedUrl.href;
+        } catch (e) {
+          const cleanParams = new URLSearchParams(window.location.search);
+          cleanParams.delete('to');
+          cleanParams.delete('redirect');
+          cleanParams.delete('url');
+          const searchStr = cleanParams.toString();
+          if (searchStr) {
+            const separator = dest.includes('?') ? '&' : '?';
+            dest = dest + separator + searchStr;
+          }
+        }
+      }
+      return dest;
     }
  
     function isValidDestination(url) {
