@@ -1,0 +1,8 @@
+.elementor-170 .elementor-element.elementor-element-3301e5d{--display:flex;--flex-wrap:nowrap;--flex-wrap-mobile:nowrap;}
+/* --- correcao de bug ---------------------------------------------------
+   flex-direction:column + flex-wrap:wrap faz o Chrome colapsar a altura do
+   widget que contem o player (o placeholder usa padding-% para manter a
+   proporcao 3:4). Resultado: o bloco preto do video ficava por cima do
+   titulo e dos botoes. Com nowrap a altura e reservada corretamente.      */
+.elementor-170 .e-con-inner{flex-wrap:nowrap;}
+.elementor-170 vturb-smartplayer{display:block;width:100%;max-width:400px;margin:0 auto;}

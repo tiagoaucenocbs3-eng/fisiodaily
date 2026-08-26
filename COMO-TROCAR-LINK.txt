@@ -1,0 +1,116 @@
+COMO TROCAR O LINK DE REDIRECIONAMENTO
+
+Pasta central:
+C:\Users\tiago\Downloads\estruturas\presell-central-idiomas
+
+Dentro da pasta central existem três versões:
+
+1) Inglês:
+C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\ingles
+
+2) Francês:
+C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\frances
+
+3) Português:
+C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\portugues
+
+Cada idioma tem o próprio arquivo config.js.
+
+--------------------------------------------------
+COMO TROCAR O LINK NA VERSÃO EM INGLÊS
+--------------------------------------------------
+
+Abra este arquivo:
+C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\ingles\config.js
+
+Procure esta linha:
+
+destinationUrl: 'https://www.youtube.com/',
+
+Troque pelo link final que você quiser.
+
+Exemplo:
+
+destinationUrl: 'https://meusite.com/oferta',
+
+Salve o arquivo.
+
+--------------------------------------------------
+COMO TROCAR O LINK NA VERSÃO EM FRANCÊS
+--------------------------------------------------
+
+Abra este arquivo:
+C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\frances\config.js
+
+Procure esta linha:
+
+destinationUrl: 'https://www.youtube.com/',
+
+Troque pelo link final que você quiser.
+
+Exemplo:
+
+destinationUrl: 'https://meusite.com/oferta',
+
+Salve o arquivo.
+
+--------------------------------------------------
+COMO TROCAR O LINK NA VERSÃO EM PORTUGUÊS
+--------------------------------------------------
+
+Abra este arquivo:
+C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\portugues\config.js
+
+Procure esta linha:
+
+destinationUrl: 'https://www.youtube.com/',
+
+Troque pelo link final que você quiser.
+
+Exemplo:
+
+destinationUrl: 'https://meusite.com/oferta',
+
+Salve o arquivo.
+
+--------------------------------------------------
+IMPORTANTE
+--------------------------------------------------
+
+Mantenha sempre o link entre aspas simples.
+
+Certo:
+destinationUrl: 'https://meusite.com/oferta',
+
+Errado:
+destinationUrl: https://meusite.com/oferta,
+
+Também mantenha a vírgula no final da linha.
+
+--------------------------------------------------
+EXEMPLOS PRONTOS
+--------------------------------------------------
+
+Para checkout:
+destinationUrl: 'https://checkout.meusite.com/produto',
+
+Para página de vendas:
+destinationUrl: 'https://meusite.com/vendas',
+
+Para WhatsApp:
+destinationUrl: 'https://wa.me/5511999999999',
+
+Para YouTube:
+destinationUrl: 'https://www.youtube.com/',
+
+--------------------------------------------------
+OPÇÃO AVANÇADA: MANDAR O LINK PELA URL
+--------------------------------------------------
+
+Além de trocar no config.js, a presell também aceita o destino direto pela URL usando ?to=
+
+Exemplo:
+
+/presell/?to=https%3A%2F%2Fmeusite.com%2Foferta
+
+Mas o jeito mais simples é editar o config.js.
