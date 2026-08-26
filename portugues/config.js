@@ -1,7 +1,7 @@
 window.PRESELL_CONFIG = {
   // Final link after click/verification.
   // Change this value to the final destination site.
-  destinationUrl: 'https://www.youtube.com/',
+  destinationUrl: '../prosperidade-fr/',
 
   // If true, redirects automatically after verification.
   redirectAfterVerify: true,
