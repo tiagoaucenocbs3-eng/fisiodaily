@@ -1,16 +1,17 @@
+// Configurações da Presell (Espanhol do México - es-MX)
 window.PRESELL_CONFIG = {
-  // Final link after click/verification.
-  // Change this value to the final destination site.
-  destinationUrl: './prosperidade-fr/',
+  // Rota da API Serverless que executa o Round Robin no servidor
+  whatsappApiUrl: '/api/whatsapp',
 
-  // If true, redirects automatically after verification.
+  // Redirecionar automaticamente após o clique de verificação
   redirectAfterVerify: true,
 
-  // Delay before redirecting, in milliseconds.
+  // Tempo de delay para feedback visual do usuário (em milissegundos)
   delayAfterClick: 650,
 
-  // Presell texts for this language.
-  title: 'Vérification de sécurité',
-  checkboxText: 'Je ne suis pas un robot',
-  footerText: 'Protégé par vérification · Confidentialité · Conditions'
+  // Textos da interface em Espanhol (México)
+  title: 'Verificación de seguridad',
+  checkboxText: 'No soy un robot',
+  footerText: 'Protegido por verificación · Privacidad · Términos',
+  errorMessage: 'No fue posible continuar en este momento. Inténtalo de nuevo.'
 };

@@ -1,0 +1,21 @@
+{
+  "name": "presell-central-idiomas",
+  "version": "1.0.0",
+  "description": "Presell em PT-BR com Redirecionador Global de WhatsApp Round Robin na Vercel",
+  "main": "api/whatsapp.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node test/round-robin.test.js"
+  },
+  "keywords": [
+    "presell",
+    "whatsapp",
+    "round-robin",
+    "vercel",
+    "tiktok-ads"
+  ],
+  "author": "",
+  "license": "ISC"
+}

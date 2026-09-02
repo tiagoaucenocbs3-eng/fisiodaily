@@ -1,116 +1,46 @@
-COMO TROCAR O LINK DE REDIRECIONAMENTO
+COMO CONFIGURAR O REDIRECIONAMENTO DE WHATSAPP
 
-Pasta central:
-C:\Users\tiago\Downloads\estruturas\presell-central-idiomas
-
-Dentro da pasta central existem três versões:
-
-1) Inglês:
-C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\ingles
-
-2) Francês:
-C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\frances
-
-3) Português:
-C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\portugues
-
-Cada idioma tem o próprio arquivo config.js.
+O sistema agora conta com um REDIRECIONADOR GLOBAL DE MÚLTIPLOS NÚMEROS DE WHATSAPP utilizando Round Robin Atômico (Upstash Redis + Vercel Serverless).
 
 --------------------------------------------------
-COMO TROCAR O LINK NA VERSÃO EM INGLÊS
+COMO CONFIGURAR OS NÚMEROS DE WHATSAPP
 --------------------------------------------------
 
-Abra este arquivo:
-C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\ingles\config.js
+1. No ambiente local:
+Edite o arquivo `.env` na raiz do projeto:
 
-Procure esta linha:
+WHATSAPP_NUMBERS=5511999999999,5511888888888,5511777777777
+WHATSAPP_MESSAGE=Olá, vim pelo anúncio e gostaria de mais informações.
 
-destinationUrl: 'https://www.youtube.com/',
+2. Na Vercel (Produção):
+Acesse o painel do seu projeto na Vercel:
+Settings > Environment Variables
 
-Troque pelo link final que você quiser.
+Cadastre:
+- WHATSAPP_NUMBERS = seus números separados por vírgula (ex: 5511999999999,5511888888888)
+- WHATSAPP_MESSAGE = sua mensagem automática em PT-BR
+- UPSTASH_REDIS_REST_URL = sua URL REST do Upstash Redis
+- UPSTASH_REDIS_REST_TOKEN = seu Token REST do Upstash Redis
+
+--------------------------------------------------
+FORMATO DOS NÚMEROS
+--------------------------------------------------
+Sempre utilize o padrão internacional:
+55 + DDD + NÚMERO (somente números)
 
 Exemplo:
-
-destinationUrl: 'https://meusite.com/oferta',
-
-Salve o arquivo.
+5511999999999
 
 --------------------------------------------------
-COMO TROCAR O LINK NA VERSÃO EM FRANCÊS
+MENSAGEM AUTOMÁTICA
 --------------------------------------------------
-
-Abra este arquivo:
-C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\frances\config.js
-
-Procure esta linha:
-
-destinationUrl: 'https://www.youtube.com/',
-
-Troque pelo link final que você quiser.
-
-Exemplo:
-
-destinationUrl: 'https://meusite.com/oferta',
-
-Salve o arquivo.
+A mensagem é codificada automaticamente para URLs seguras do WhatsApp, aceitando acentuação, espaços e emojis.
 
 --------------------------------------------------
-COMO TROCAR O LINK NA VERSÃO EM PORTUGUÊS
+TESTE LOCAL
 --------------------------------------------------
-
-Abra este arquivo:
-C:\Users\tiago\Downloads\estruturas\presell-central-idiomas\portugues\config.js
-
-Procure esta linha:
-
-destinationUrl: 'https://www.youtube.com/',
-
-Troque pelo link final que você quiser.
-
-Exemplo:
-
-destinationUrl: 'https://meusite.com/oferta',
-
-Salve o arquivo.
-
---------------------------------------------------
-IMPORTANTE
---------------------------------------------------
-
-Mantenha sempre o link entre aspas simples.
-
-Certo:
-destinationUrl: 'https://meusite.com/oferta',
-
-Errado:
-destinationUrl: https://meusite.com/oferta,
-
-Também mantenha a vírgula no final da linha.
-
---------------------------------------------------
-EXEMPLOS PRONTOS
---------------------------------------------------
-
-Para checkout:
-destinationUrl: 'https://checkout.meusite.com/produto',
-
-Para página de vendas:
-destinationUrl: 'https://meusite.com/vendas',
-
-Para WhatsApp:
-destinationUrl: 'https://wa.me/5511999999999',
-
-Para YouTube:
-destinationUrl: 'https://www.youtube.com/',
-
---------------------------------------------------
-OPÇÃO AVANÇADA: MANDAR O LINK PELA URL
---------------------------------------------------
-
-Além de trocar no config.js, a presell também aceita o destino direto pela URL usando ?to=
-
-Exemplo:
-
-/presell/?to=https%3A%2F%2Fmeusite.com%2Foferta
-
-Mas o jeito mais simples é editar o config.js.
+Para testar no seu computador:
+npm start
+ou
+node server.js
+e acesse: http://localhost:3000
