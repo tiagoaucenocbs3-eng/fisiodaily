@@ -1,0 +1,13 @@
+{
+  "name": "presell-central-idiomas",
+  "version": "1.0.0",
+  "description": "Presell em Espanhol do México com Redirecionador Global de WhatsApp Round Robin na Vercel",
+  "type": "module",
+  "main": "api/whatsapp.js",
+  "scripts": {
+    "build": "echo ok",
+    "start": "node dev-server.js",
+    "dev": "node dev-server.js",
+    "test": "node test/round-robin.test.js"
+  }
+}
