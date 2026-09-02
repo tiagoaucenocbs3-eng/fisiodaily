@@ -19,18 +19,19 @@ export default async function handler(req, res) {
   }
 
   try {
-    // 1. Obtener y limpiar la lista de números configurados
-    const rawNumbers = process.env.WHATSAPP_NUMBERS || '';
+    // 1. Obtener y limpiar la lista de números configurados (con fallback automático por defecto)
+    const rawNumbers = (process.env.WHATSAPP_NUMBERS && process.env.WHATSAPP_NUMBERS.trim() !== '')
+      ? process.env.WHATSAPP_NUMBERS
+      : '5573981246685';
+
     const validNumbers = rawNumbers
       .split(',')
       .map(num => num.replace(/\D/g, '').trim())
       .filter(num => num.length >= 10); // Estándar internacional (ej: 5215512345678 o 5511999999999)
 
-    // Si no hay números configurados, retorna error controlado
+    // Si no hay números configurados, usa el fallback seguro
     if (validNumbers.length === 0) {
-      return res.status(500).json({
-        error: 'Ningún número de WhatsApp válido fue configurado en el servidor.'
-      });
+      validNumbers.push('5573981246685');
     }
 
     // 2. Obtener el mensaje predeterminado
