@@ -28,7 +28,7 @@ if (fs.existsSync(envPath)) {
 
 // Configuraciones por defecto para pruebas si no están en .env
 if (!process.env.WHATSAPP_NUMBERS) {
-  process.env.WHATSAPP_NUMBERS = '5215512345678,5215587654321,5215598765432';
+  process.env.WHATSAPP_NUMBERS = '5573981246685';
 }
 if (!process.env.WHATSAPP_MESSAGE) {
   process.env.WHATSAPP_MESSAGE = 'Hola, vi el anuncio y me gustaría recibir más información.';
