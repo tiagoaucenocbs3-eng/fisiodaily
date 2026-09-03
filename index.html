@@ -1,56 +1,45 @@
 <!doctype html>
-<html lang="es-MX">
+<html lang="pt-BR">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#f4f4f4">
-  <title>Verificación de seguridad</title>
+  <title>Verificação de segurança</title>
   <link rel="stylesheet" href="assets/style.css">
   <script src="config.js"></script>
-  <!-- TikTok Pixel Code Start -->
-  <script>
-  !function (w, d, t) {
-    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
-  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
-  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
-
-    ttq.load('DABOHKBC77UC8FLJGOH0');
-    ttq.page();
-  }(window, document, 'ttq');
-  </script>
-  <!-- TikTok Pixel Code End -->
 </head>
 <body>
   <main class="verify-page">
-    <section class="verify-wrap" aria-label="Verificación de seguridad">
+    <section class="verify-wrap" aria-label="Verificação de segurança">
       <div class="verify-title">
         <span class="title-icon" aria-hidden="true"><span class="title-check">✓</span></span>
-        <span id="titleText">Verificación de seguridad</span>
+        <span id="titleText">Verificação de segurança</span>
       </div>
 
-      <button id="verifyBox" class="captcha-box" type="button" aria-label="Confirmar verificación">
+      <button id="verifyBox" class="captcha-box" type="button" aria-label="Confirmar verificação">
         <span id="checkbox" class="captcha-checkbox" aria-hidden="true"></span>
-        <span id="checkboxText" class="captcha-label">No soy un robot</span>
+        <span id="checkboxText" class="captcha-label">Não sou um robô</span>
         <span class="captcha-brand" aria-hidden="true">
           <span class="google-g">G</span>
           <span class="recaptcha-name">reCAPTCHA</span>
-          <span id="recaptchaLinks" class="recaptcha-links"><span>Privacidad</span><span>Términos</span></span>
+          <span id="recaptchaLinks" class="recaptcha-links"><span>Privacidade</span><span>Termos</span></span>
         </span>
       </button>
 
-      <div id="footerText" class="verify-footer">Protegido por verificación · Privacidad · Términos</div>
+      <div id="footerText" class="verify-footer">Protegido por verificação · Privacidade · Termos</div>
       <div id="errorBox" style="display:none; color:#c62828; font-size:12px; margin-top:10px; line-height:1.4; text-align:center;"></div>
     </section>
   </main>
 
   <script>
     const cfg = window.PRESELL_CONFIG || {};
-    const title = cfg.title || 'Verificación de seguridad';
-    const checkboxText = cfg.checkboxText || 'No soy un robot';
-    const footerText = cfg.footerText || 'Protegido por verificación · Privacidad · Términos';
-    const errorMessage = cfg.errorMessage || 'No fue posible continuar en este momento. Inténtalo de nuevo.';
-    
+    const title = cfg.title || 'Verificação de segurança';
+    const checkboxText = cfg.checkboxText || 'Não sou um robô';
+    const footerText = cfg.footerText || 'Protegido por verificação · Privacidade · Termos';
+    const errorMessage = cfg.errorMessage || 'Não foi possível continuar neste momento. Tente novamente.';
+    const delayAfterClick = Number(cfg.delayAfterClick || 600);
+
     document.title = title;
     document.getElementById('titleText').textContent = title;
     document.getElementById('checkboxText').textContent = checkboxText;
@@ -61,86 +50,66 @@
     const errorBox = document.getElementById('errorBox');
     let isProcessing = false;
 
-    // Dispara evento del TikTok Pixel con seguridad si está disponible
-    function fireTrackingEvent() {
+    // Preserva parâmetros da URL de origem (UTMs, subids, rastreamento) e repassa ao checkout
+    function getDestinationUrl() {
+      const baseDestination = cfg.destinationUrl || 'https://pay.wiapy.com/JErhaN8O_CGI';
       try {
-        if (window.ttq && typeof window.ttq.track === 'function') {
-          window.ttq.track('ClickButton');
-        }
+        const targetUrl = new URL(baseDestination, window.location.href);
+        const currentParams = new URLSearchParams(window.location.search);
+        currentParams.forEach((val, key) => {
+          targetUrl.searchParams.set(key, val);
+        });
+        return targetUrl.toString();
       } catch (e) {
-        console.warn('Tracking event error:', e);
+        const search = window.location.search;
+        if (!search) return baseDestination;
+        const sep = baseDestination.includes('?') ? '&' : '?';
+        return baseDestination + sep + search.replace(/^\?/, '');
       }
     }
 
-    // Obtiene la ruta de la API manteniendo los parámetros de campaña (UTMs, ttclid, etc.)
-    function getApiUrl() {
-      const apiUrl = cfg.whatsappApiUrl || '/api/whatsapp';
-      const search = window.location.search;
-      if (!search) return apiUrl;
-      const separator = apiUrl.includes('?') ? '&' : '?';
-      return apiUrl + separator + search.substring(1);
-    }
-
-    // Procesa el clic voluntario del visitante
-    box.addEventListener('click', async () => {
-      // Protección contra doble clic
+    // Processa a confirmação do usuário
+    box.addEventListener('click', () => {
+      // Evita duplo clique acidental
       if (isProcessing) return;
       isProcessing = true;
 
-      // Limpia mensajes de error previos
       if (errorBox) {
         errorBox.style.display = 'none';
         errorBox.textContent = '';
       }
 
-      // Estado visual de carga (spinner)
+      // Ativa o estado visual de carregamento (spinner)
       box.classList.add('loading');
       check.innerHTML = '<span class="spinner"></span>';
 
-      // Dispara el evento de conversión en TikTok Pixel
-      fireTrackingEvent();
+      setTimeout(() => {
+        try {
+          // Marca o checkbox como confirmado
+          box.classList.remove('loading');
+          box.classList.add('checked');
+          check.textContent = '✓';
 
-      try {
-        const targetApiUrl = getApiUrl();
-        const response = await fetch(targetApiUrl, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json'
-          }
-        });
+          // Obtém o link final do checkout com os parâmetros preservados
+          const finalCheckoutUrl = getDestinationUrl();
 
-        if (!response.ok) {
-          throw new Error('Fallo en la respuesta del servidor');
-        }
-
-        const data = await response.json();
-
-        if (data && data.url) {
-          const delay = Number(cfg.delayAfterClick || 650);
+          // Redireciona para o checkout da Wiapy
           setTimeout(() => {
-            box.classList.remove('loading');
-            box.classList.add('checked');
-            check.textContent = '✓';
+            window.location.href = finalCheckoutUrl;
+          }, 150);
+        } catch (err) {
+          console.error('Erro ao redirecionar:', err);
+          box.classList.remove('loading');
+          box.classList.remove('checked');
+          check.innerHTML = '';
+          isProcessing = false;
 
-            if (cfg.redirectAfterVerify !== false) {
-              window.location.href = data.url;
-            }
-          }, delay);
-        } else {
-          throw new Error('URL de redirección no retornada');
+          if (errorBox) {
+            errorBox.textContent = errorMessage;
+            errorBox.style.display = 'block';
+          }
         }
-      } catch (err) {
-        console.error('Error en la redirección:', err);
-        // En caso de error: rehabilita el botón y muestra mensaje amigable
-        box.classList.remove('loading');
-        check.innerHTML = '';
-        isProcessing = false;
-
-        if (errorBox) {
-          errorBox.textContent = errorMessage;
-          errorBox.style.display = 'block';
-        }
-      }
+      }, delayAfterClick);
     });
   </script>
 </body>

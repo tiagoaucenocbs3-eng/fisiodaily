@@ -1,17 +1,17 @@
-// Configurações da Presell (Espanhol do México - es-MX)
+// Configuração da Presell (Português - Brasil)
 window.PRESELL_CONFIG = {
-  // Rota da API Serverless que executa o Round Robin no servidor
-  whatsappApiUrl: '/api/whatsapp',
+  // Link direto de checkout da Wiapy
+  destinationUrl: 'https://pay.wiapy.com/JErhaN8O_CGI',
 
-  // Redirecionar automaticamente após o clique de verificação
+  // Redirecionar automaticamente após a confirmação
   redirectAfterVerify: true,
 
-  // Tempo de delay para feedback visual do usuário (em milissegundos)
-  delayAfterClick: 650,
+  // Tempo da animação de verificação (em milissegundos)
+  delayAfterClick: 600,
 
-  // Textos da interface em Espanhol (México)
-  title: 'Verificación de seguridad',
-  checkboxText: 'No soy un robot',
-  footerText: 'Protegido por verificación · Privacidad · Términos',
-  errorMessage: 'No fue posible continuar en este momento. Inténtalo de nuevo.'
+  // Textos da interface em Português (PT-BR)
+  title: 'Verificação de segurança',
+  checkboxText: 'Não sou um robô',
+  footerText: 'Protegido por verificação · Privacidade · Termos',
+  errorMessage: 'Não foi possível continuar neste momento. Tente novamente.'
 };
