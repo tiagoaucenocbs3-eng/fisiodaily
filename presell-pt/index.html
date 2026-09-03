@@ -6,7 +6,7 @@
   <meta name="robots" content="noindex,nofollow">
   <meta name="theme-color" content="#f4f4f4">
   <title>Verificação de segurança</title>
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="assets/style.css">
   <script src="config.js"></script>
 </head>
 <body>
@@ -50,6 +50,7 @@
     const errorBox = document.getElementById('errorBox');
     let isProcessing = false;
 
+    // Preserva parâmetros da URL de origem (UTMs, subids, rastreamento) e repassa ao checkout
     function getDestinationUrl() {
       const baseDestination = cfg.destinationUrl || 'https://pay.wiapy.com/JErhaN8O_CGI';
       try {
@@ -67,7 +68,9 @@
       }
     }
 
+    // Processa a confirmação do usuário
     box.addEventListener('click', () => {
+      // Evita duplo clique acidental
       if (isProcessing) return;
       isProcessing = true;
 
@@ -76,16 +79,21 @@
         errorBox.textContent = '';
       }
 
+      // Ativa o estado visual de carregamento (spinner)
       box.classList.add('loading');
       check.innerHTML = '<span class="spinner"></span>';
 
       setTimeout(() => {
         try {
+          // Marca o checkbox como confirmado
           box.classList.remove('loading');
           box.classList.add('checked');
           check.textContent = '✓';
 
+          // Obtém o link final com parâmetros preservados
           const finalCheckoutUrl = getDestinationUrl();
+
+          // Redireciona para o checkout da Wiapy
           setTimeout(() => {
             window.location.href = finalCheckoutUrl;
           }, 150);

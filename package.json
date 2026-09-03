@@ -1,7 +1,7 @@
 {
-  "name": "presell-central-idiomas",
+  "name": "fisiodaily",
   "version": "1.0.0",
-  "description": "Presell em Espanhol do México com Redirecionador Global de WhatsApp Round Robin na Vercel",
+  "description": "Presell multilíngue e redirecionador adaptado para Vercel",
   "type": "module",
   "main": "api/whatsapp.js",
   "scripts": {
