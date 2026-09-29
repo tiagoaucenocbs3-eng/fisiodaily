@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact &amp; Support | L'Éveil Quotidien</title>
+  <meta name="description" content="Contactez la rédaction de L'Éveil Quotidien pour toute question, remarque ou demande d'information.">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- En-tête -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">✦</div>
+        <div class="brand-text">
+          <span class="brand-title">L'Éveil Quotidien</span>
+          <span class="brand-tagline">Art de vivre & Sérénité</span>
+        </div>
+      </a>
+      <nav class="main-nav">
+        <a href="index.html">Accueil</a>
+        <a href="index.html#article">Articles</a>
+        <a href="contact.html" class="active">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="page-container">
+    <nav class="breadcrumbs">
+      <a href="index.html">Accueil</a>
+      <span class="separator">›</span>
+      <span>Contact &amp; Assistance</span>
+    </nav>
+
+    <div class="legal-card">
+      <h1>Contact &amp; Centre d'Assistance</h1>
+      <div class="legal-updated">Une question, une suggestion ou une demande relative à vos données ? Notre équipe vous répond avec plaisir.</div>
+
+      <div class="legal-section">
+        <h2>Nous contacter directement</h2>
+        <p>
+          Pour toute demande éditoriale, partenariat ou question liée à la confidentialité de vos informations, vous pouvez nous écrire directement :
+        </p>
+        <p>
+          <strong>Courriel général :</strong> contact.eveilquotidien@gmail.com<br>
+          <strong>Délai moyen de réponse :</strong> 24 à 48 heures ouvrées (du lundi au vendredi).
+        </p>
+      </div>
+
+      <div class="legal-section">
+        <h2>Formulaire de contact rapide</h2>
+        <p>Remplissez le formulaire ci-dessous pour nous envoyer votre message instantanément :</p>
+        
+        <form class="contact-form" id="contactForm" onsubmit="handleContactSubmit(event)">
+          <div class="form-group">
+            <label for="contactName">Nom complet *</label>
+            <input type="text" id="contactName" class="form-input" placeholder="Ex. Jean Dupont" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contactEmail">Adresse e-mail *</label>
+            <input type="email" id="contactEmail" class="form-input" placeholder="nom@exemple.fr" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contactSubject">Objet de votre demande *</label>
+            <select id="contactSubject" class="form-input" required>
+              <option value="">Sélectionnez un motif...</option>
+              <option value="question">Question sur un article</option>
+              <option value="privacy">Données personnelles / RGPD</option>
+              <option value="editorial">Proposition éditoriale</option>
+              <option value="other">Autre demande</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage">Votre message *</label>
+            <textarea id="contactMessage" class="form-textarea" placeholder="Expliquez-nous comment nous pouvons vous aider..." required></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit">Envoyer mon message</button>
+        </form>
+
+        <div id="contactSuccess" style="display:none; background:#f0fdfa; border:1px solid #99f6e4; color:#0f766e; padding:16px 20px; border-radius:8px; margin-top:20px; font-weight:600;">
+          ✓ Merci ! Votre message a bien été transmis à notre équipe de support. Nous vous répondrons dans les plus brefs délais.
+        </div>
+      </div>
+
+      <div class="legal-section" style="margin-top: 36px; border-top: 1px solid var(--border-color); padding-top: 24px;">
+        <h2>Coordonnées de l'éditeur</h2>
+        <p style="font-size:14px; color:var(--text-muted);">
+          L'Éveil Quotidien — Service Rédaction &amp; Relations Lecteurs<br>
+          Assistance disponible en français du lundi au vendredi de 9h à 18h.<br>
+          Conformité RGPD garantie.
+        </p>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-bottom">
+        <div>© 2026 L'Éveil Quotidien. Tous droits réservés.</div>
+        <div><a href="index.html" style="color:#94a3b8; text-decoration:none;">Retour à l'accueil</a></div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
